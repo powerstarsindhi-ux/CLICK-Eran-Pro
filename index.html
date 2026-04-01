@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdNova — Advertise. Earn. Grow.</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --bg:      #030714;
+  --card:    #0a1025;
+  --border:  #1a2545;
+  --cyan:    #00c6ff;
+  --purple:  #9333ea;
+  --grad:    linear-gradient(135deg, #00c6ff 0%, #9333ea 100%);
+  --muted:   #6b7fa3;
+  --success: #00e676;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html,body { min-height:100%; font-family:'Nunito',sans-serif; background:var(--bg); color:#fff; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+/* ── Background grid effect ── */
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(0,198,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,198,255,0.04) 1px, transparent 1px);
+  background-size:40px 40px;
+}
+body::after {
+  content:''; position:fixed; top:-20%; left:50%; transform:translateX(-50%);
+  width:700px; height:700px; pointer-events:none; z-index:0;
+  background: radial-gradient(ellipse, rgba(0,198,255,0.10) 0%, rgba(147,51,234,0.08) 45%, transparent 70%);
+}
+
+/* ── MAIN LAYOUT ── */
+.wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px 16px; position:relative; z-index:1; }
+.card { width:100%; max-width:400px; background:var(--card); border:1px solid var(--border); border-radius:28px; padding:36px 24px 30px; box-shadow:0 0 60px rgba(0,198,255,0.06), 0 20px 60px rgba(0,0,0,0.5); position:relative; overflow:hidden; }
+
+/* Card top glow */
+.card::before { content:''; position:absolute; top:-60px; left:50%; transform:translateX(-50%); width:200px; height:200px; background:radial-gradient(circle, rgba(0,198,255,0.15) 0%, transparent 70%); pointer-events:none; }
+
+/* ── LOGO ── */
+.logo-block { text-align:center; margin-bottom:30px; }
+.logo-ring {
+  width:72px; height:72px; margin:0 auto 14px;
+  border-radius:20px;
+  background: var(--grad);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Rajdhani',sans-serif; font-size:26px; font-weight:700; color:#fff;
+  box-shadow:0 0 30px rgba(0,198,255,0.35), 0 8px 24px rgba(0,0,0,0.4);
+  letter-spacing:2px;
+}
+.logo-name { font-family:'Rajdhani',sans-serif; font-size:30px; font-weight:700; letter-spacing:3px; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.logo-tag  { font-size:12px; color:var(--muted); margin-top:4px; letter-spacing:1px; }
+
+/* ── DESCRIPTION ── */
+.desc { font-size:13px; color:#8899bb; text-align:center; line-height:1.7; margin-bottom:26px; }
+.desc span { color:#c8d8ff; font-weight:700; }
+
+/* ── PLATFORM GRID ── */
+.platform-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:28px; }
+.plat-item {
+  background:#060d1f; border:1px solid var(--border); border-radius:14px;
+  padding:12px 6px; text-align:center; font-size:10px; color:var(--muted);
+  font-weight:700; letter-spacing:0.5px; transition:0.2s;
+}
+.plat-item:hover { border-color:rgba(0,198,255,0.3); color:#a8c0ff; }
+.plat-item .pi { font-size:20px; display:block; margin-bottom:5px; }
+
+/* ── DIVIDER ── */
+.divider { display:flex; align-items:center; gap:12px; margin-bottom:22px; }
+.divider span { flex:1; height:1px; background:var(--border); }
+.divider p { font-size:10px; color:var(--muted); font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+
+/* ── BUTTONS ── */
+.btn-start {
+  display:block; width:100%; padding:16px;
+  background:var(--grad); color:#fff;
+  text-decoration:none; border-radius:15px;
+  font-family:'Rajdhani',sans-serif; font-size:16px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; text-align:center;
+  box-shadow:0 4px 24px rgba(0,198,255,0.3);
+  transition:0.25s; margin-bottom:12px;
+}
+.btn-start:active { transform:scale(0.97); }
+
+.btn-outline {
+  display:block; width:100%; padding:14px;
+  background:transparent; border:1px solid var(--border);
+  color:var(--cyan); text-decoration:none; border-radius:15px;
+  font-family:'Rajdhani',sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; text-align:center;
+  transition:0.25s;
+}
+.btn-outline:active { background:rgba(0,198,255,0.06); transform:scale(0.97); }
+
+/* ── BADGE ROW ── */
+.badge-row { display:flex; gap:8px; justify-content:center; margin-top:22px; flex-wrap:wrap; }
+.badge { background:#060d1f; border:1px solid var(--border); border-radius:20px; padding:5px 12px; font-size:10px; color:var(--muted); font-weight:700; display:flex; align-items:center; gap:5px; }
+.badge i { color:var(--cyan); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+
+    <div class="logo-block">
+      <div class="logo-ring">AN</div>
+      <div class="logo-name">AdNova</div>
+      <div class="logo-tag">Advertise. Earn. Grow.</div>
+    </div>
+
+    <p class="desc">
+      Pakistan's next-gen digital earning platform.<br>
+      Complete <span>Ad tasks</span> and earn <span>real cash</span> — daily, instantly.
+    </p>
+
+    <div class="platform-grid">
+      <div class="plat-item"><span class="pi">🌐</span>Google</div>
+      <div class="plat-item"><span class="pi">🎬</span>YouTube</div>
+      <div class="plat-item"><span class="pi">👤</span>Facebook</div>
+      <div class="plat-item"><span class="pi">🎵</span>TikTok</div>
+      <div class="plat-item"><span class="pi">📷</span>Instagram</div>
+      <div class="plat-item"><span class="pi">💼</span>LinkedIn</div>
+    </div>
+
+    <div class="divider"><span></span><p>Get Started</p><span></span></div>
+
+    <a href="auth.html" class="btn-start">
+      <i class="fas fa-rocket"></i>&nbsp; Start Earning Now
+    </a>
+    <a href="#" class="btn-outline">
+      <i class="fa-brands fa-android"></i>&nbsp; Download App
+    </a>
+
+    <div class="badge-row">
+      <div class="badge"><i class="fas fa-shield-halved"></i>Secure</div>
+      <div class="badge"><i class="fas fa-bolt"></i>Instant Pay</div>
+      <div class="badge"><i class="fas fa-users"></i>Referral Bonus</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
